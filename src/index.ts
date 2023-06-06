@@ -1,20 +1,15 @@
+import { generate } from "genhera"
 import { Plugin, type ConvertFunction } from "submarin-converter"
 
-interface ConvertFunctionOption {
-  prefix: string
-}
-const mainConvertFunction: ConvertFunction<ConvertFunctionOption> = ({ input, option }) =>
-  `${option?.prefix ?? ""}${input}`
+const mainConvertFunction: ConvertFunction<void> = ({ input }) => generate(input)
 
-const templatePlugin = new Plugin({
+const genheraPlugin = new Plugin({
   convertFunction: [mainConvertFunction],
   metaData: {
-    name: "テンプレートプラグイン",
-    description: "プラグインのテンプレートです",
+    name: "メンヘラ",
+    description: "日本語をﾒﾝﾍﾗっぽぃ日本語に変換します",
     author: "すえ"
   }
 })
 
-export { templatePlugin }
-
-export type { ConvertFunctionOption }
+export { genheraPlugin }

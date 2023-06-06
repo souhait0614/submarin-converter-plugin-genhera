@@ -1,36 +1,30 @@
 import { Converter } from "submarin-converter"
 import { expect, test } from "vitest"
-import { templatePlugin } from "../src"
+import { genheraPlugin } from "../src"
 
 test("Basic Usage", async () => {
   const converter = new Converter({
     plugins: {
-      template: templatePlugin,
+      genhera: genheraPlugin,
     } as const,
   })
 
-  const input = "subway"
+  const input = "おはようございます。"
 
   const [output, details] = await converter.convert(input, [
     {
-      id: "template",
-      option: {
-        prefix: "hi",
-      },
+      id: "genhera",
     },
   ] as const)
 
-  const expectedOutput = "hisubway"
+  const expectedOutput = "ぉゎよぉござぃます。。。"
   const expectedDetails: typeof details = [
     {
-      id: "template",
+      id: "genhera",
       ok: true,
-      output: "hisubway",
+      output: "ぉゎよぉござぃます。。。",
       args: {
-        input: "subway",
-        option: {
-          prefix: "hi",
-        },
+        input: "おはようございます。",
       },
       error: [],
     },
