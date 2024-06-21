@@ -6,5 +6,13 @@
     "@std/assert": "jsr:@std/assert@^0.226.0",
     "@submarin-converter/core": "jsr:@submarin-converter/core@^0.0.6",
     "genhera": "npm:genhera@^1.1.0"
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "deno.jsonc",
+      "src/**/*.ts"
+    ]
   }
 }
