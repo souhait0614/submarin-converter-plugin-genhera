@@ -6,7 +6,7 @@
  * @example
  * ```typescript
  * import { Converter } from "@submarin-converter/core";
- * import genhera from "@submarin-converter/plugin-genhera";
+ * import genhera from "@submarin-converter/plugin-genhera/dynamic";
  *
  * const converter = new Converter({ genhera });
  *
