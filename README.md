@@ -9,10 +9,17 @@
 
 see <https://jsr.io/@submarin-converter/plugin-genhera>
 
+## Dependencies
+
+- [genhera.js](https://github.com/Submarinonline/genhera.js)
+  - 通常はこちらを使用します
+- <https://api.souhait.me>
+  - genhera.jsでの変換が失敗した際に使用します
+
 ## Development
 
 ```shell
 git clone https://github.com/souhait0614/submarin-converter-plugin-genhera.git
 cd submarin-converter-plugin-genhera
-deno test
+deno test --allow-net
 ```
