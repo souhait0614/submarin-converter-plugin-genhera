@@ -19,6 +19,7 @@
 import { generate } from "genhera";
 import type { Plugin } from "@submarin-converter/core";
 import { fallbackFunction } from "./fallbackFunction.ts";
+import { apiUrl } from "./constants.ts";
 
 /** submarin-converterのPluginとして設定できるPlugin */
 const plugin: Plugin<undefined> = {
@@ -26,7 +27,10 @@ const plugin: Plugin<undefined> = {
   metaData: {
     displayName: "メンヘラ",
     description: "日本語をﾒﾝﾍﾗっぽぃ日本語に変換します",
-    homepage: "https://github.com/Submarinonline/genhera.js",
+    homepage: [
+      "https://github.com/Submarinonline/genhera.js",
+      new URL(apiUrl).origin,
+    ],
     repository:
       "https://github.com/souhait0614/submarin-converter-plugin-genhera",
     author: "すえ",
