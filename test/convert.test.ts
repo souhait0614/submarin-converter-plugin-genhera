@@ -1,7 +1,6 @@
 import { Converter, type Plugin } from "@submarin-converter/core";
 import genhera from "../src/index.ts";
 import { assertEquals } from "@std/assert";
-import { fallbackFunction } from "../src/fallbackFunction.ts";
 import { generate } from "genhera";
 import genheraDynamic from "../src/dynamic.ts";
 
@@ -14,15 +13,6 @@ Deno.test("convert", async () => {
 Deno.test("convert function", async () => {
   const plugin: Plugin<undefined> = {
     convertFunctions: [generate],
-  };
-  const converter = new Converter({ plugin });
-  const { text } = await converter.convert("メロスは激怒した。", ["plugin"]);
-  assertEquals(text, "ﾒﾛｽゎ激怒した。。。");
-});
-
-Deno.test("fallback function", async () => {
-  const plugin: Plugin<undefined> = {
-    convertFunctions: [fallbackFunction],
   };
   const converter = new Converter({ plugin });
   const { text } = await converter.convert("メロスは激怒した。", ["plugin"]);
@@ -42,18 +32,6 @@ Deno.test("dynamic convert function", async () => {
     convertFunctions: [async (text: string) => {
       const { generate } = await import("genhera");
       return generate(text);
-    }],
-  };
-  const converter = new Converter({ plugin });
-  const { text } = await converter.convert("メロスは激怒した。", ["plugin"]);
-  assertEquals(text, "ﾒﾛｽゎ激怒した。。。");
-});
-
-Deno.test("dynamic fallback function", async () => {
-  const plugin: Plugin<undefined> = {
-    convertFunctions: [async (text: string) => {
-      const { fallbackFunction } = await import("../src/fallbackFunction.ts");
-      return fallbackFunction(text);
     }],
   };
   const converter = new Converter({ plugin });

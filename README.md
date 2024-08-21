@@ -13,8 +13,6 @@ see <https://jsr.io/@submarin-converter/plugin-genhera>
 
 - [genhera.js](https://github.com/Submarinonline/genhera.js)
   - 通常はこちらを使用します
-- <https://api.souhait.me>
-  - genhera.jsでの変換が失敗した際に使用します
 
 ## Development
 
