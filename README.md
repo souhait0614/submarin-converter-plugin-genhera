@@ -19,5 +19,5 @@ see <https://jsr.io/@submarin-converter/plugin-genhera>
 ```shell
 git clone https://github.com/souhait0614/submarin-converter-plugin-genhera.git
 cd submarin-converter-plugin-genhera
-deno test --allow-net
+deno test
 ```
